@@ -2,9 +2,11 @@
 
 import { useState, useMemo } from 'react';
 import '@xyflow/react/dist/style.css';
-import JsonInput from './JsonInput';
-import TreeVisualization from './TreeVisualization';
-import { useJsonTree } from '../hooks/useJsonTree';
+import JsonInput from './JsonInput'
+import TreeVisualization from './TreeVisualization'
+import { useJsonTree } from '../hooks/useJsonTree'
+import SearchPanel from './SearchPanel'
+import PopupIndex from './PopupIndex'
 
 // pre-loaded data .
 const defaultData = {
@@ -31,10 +33,27 @@ const defaultData = {
 
 export default function JsonVisualiser() {
   const [input, setInput] = useState(JSON.stringify(defaultData, null, 2))
+  const [query, setQuery] = useState('')
+  const [result, setResult] = useState('')
   const tree = useJsonTree()
 
   const makeTreeFromInput = () => {
-    tree.generateTree(input)
+    const ok = tree.generateTree(input)
+    if(ok) setResult('')
+  }
+
+  const doSearch = () => {
+    if(!query) {
+      setResult('type something first!')
+      return
+    }
+
+    const found = tree.searchNode(query)
+    if(!found) {
+      setResult('nothing found :(')
+    } else {
+      setResult('found it!')
+    }
   }
 
 
@@ -81,7 +100,14 @@ export default function JsonVisualiser() {
             error={tree.error}
           />
 
+          <SearchPanel 
+            searchQuery={query}
+            onSearchChange={setQuery}
+            onSearch={doSearch}
+            searchResult={result}
+          />
 
+          <PopupIndex />
         </div>
 
       </div>
