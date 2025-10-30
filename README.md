@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JSON Tree Visualiser 🌳
 
-## Getting Started
+Hey! This is my JSON tree visualiser built with Next.js and React Flow. It helps you see JSON data in a tree format - makes it way easier to understand big JSON files!
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## What it does
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Paste any JSON and see it as a cool tree diagram
+- Different colors for different stuff (objects, arrays, etc)
+- Search through the JSON using paths like $.user.name
+- Drag nodes around to organize them better
+- Zoom in/out to see details
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone this repo
+2. Run `npm install` (might take a min)
+3. Run `npm run dev`
+4. Open http://localhost:3000
+5. That's it!
 
-## Learn More
+## How to use
 
-To learn more about Next.js, take a look at the following resources:
+1. Paste your JSON in the box (or use the sample data)
+2. Click "Generate Tree"
+3. If you need to find something:
+   - Type the path (like $.user.name)
+   - Hit search
+   - The node will light up in red if found
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Next.js (for the app)
+- React Flow (for the tree diagram)
+- Tailwind (for making it look nice)
 
-## Deploy on Vercel
+## Known issues
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Sometimes the nodes overlap a bit - just drag them around to fix
+- Really big JSON files might be slow
+- Search only works with exact paths for now
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Todo
+
+- [ ] Make the layout better
+- [ ] Add more search options
+- [ ] Maybe add a way to export the tree
+- [ ] Fix the overlapping nodes issue
+
+Made by Himesh 🚀
