@@ -2,6 +2,8 @@
 
 Hey! This is my JSON tree visualiser built with Next.js and React Flow. It helps you see JSON data in a tree format - makes it way easier to understand big JSON files!
 
+<img width="1917" height="829" alt="image" src="https://github.com/user-attachments/assets/76bbd743-bff1-46dd-b7ea-660f5728d221" />
+
 
 ## What it does
 
